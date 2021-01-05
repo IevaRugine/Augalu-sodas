@@ -1,59 +1,92 @@
 <?php
 session_start();
 //session_unset();
-if (!isset($_SESSION['a'])) {
-    $_SESSION['a'] = [];
-    $_SESSION['agurku ID'] = 0;
-    $_SESSION['agurko foto'] = [];
-}
 
 include __DIR__ . '/Agurkas.php';
+include __DIR__ . '/Pomidoras.php';
+
+if (!isset($_SESSION['a'])) {
+    $_SESSION['a'] = [];
+    $_SESSION['augalu ID'] = 0;
+}
+
+
 
 //SKINIMO SCENARIJUS
 if (isset($_POST['skinti'])) {
-    foreach ($_SESSION['a'] as $i => $agurkas) {
-        if ($_POST['skinti'] == $agurkas['id']) {
-            $_SESSION['a'][$i]['agurkai'] -= $_POST['minus'];
+    // foreach ($_SESSION['a'] as $i => $augalas) {
+    //     if ($_POST['skinti'] == $augalas['id']) {
+    //         $_SESSION['a'][$i]['agurkai'] -= $_POST['minus'];
+    //         header('Location: http://localhost/bla/agurkai/skynimas.php');
+    //         die;
+    //     }
+    // }
+
+
+    foreach ($_SESSION['obj'] as $i => $augalas) {
+        $augalas = unserialize($augalas);
+        if ($_POST['skinti'] == $augalas->id) {
+            $augalas->skintiAugalas($_POST['minus']);
+            $augalas = serialize($augalas);   //<---------vel stringas
+            $_SESSION['obj'][$i] = $augalas; // <--------ishsaugom agurkus
             header('Location: http://localhost/bla/agurkai/skynimas.php');
             die;
         }
     }
 }
 
+
+
 //VISUS SKINTI SCENARIJUS
 if (isset($_POST['visus'])) {
-    foreach ($_SESSION['a'] as $i => $agurkas) {
-        if ($_POST['visus'] == $agurkas['id']) {
-            $_SESSION['a'][$i]['agurkai'] -= $_SESSION['a'][$i]['agurkai'];
-            unset($_SESSION['a'][$i]);
+    //     foreach ($_SESSION['a'] as $i => $agurkas) {
+    //         if ($_POST['visus'] == $agurkas['id']) {
+    //             $_SESSION['a'][$i]['agurkai'] -= $_SESSION['a'][$i]['agurkai'];
+    //             unset($_SESSION['a'][$i]);
+    //             header('Location: http://localhost/bla/agurkai/skynimas.php');
+    //             die;
+    //         }
+    //     }
+    // }
+
+
+    foreach ($_SESSION['obj'] as $i => $augalas) {
+        $augalas = unserialize($augalas);
+        if ($_POST['visus'] == $augalas->id) {
+            $augalas->nuskintiVisus();
+            $augalas = serialize($augalas);   //<---------vel stringas
+            $_SESSION['obj'][$i] = $augalas; // <--------ishsaugom agurkus
             header('Location: http://localhost/bla/agurkai/skynimas.php');
             die;
         }
     }
 }
+
 
 
 //NUIMTI visa derliu
 if (isset($_POST['nuimti'])) {
-    foreach ($_SESSION['a'] as $index => $agurkas) {
-        unset($_SESSION['a']);
+    //     foreach ($_SESSION['a'] as $index => $agurkas) {
+    //         unset($_SESSION['a']);
+    //         header('Location: http://localhost/bla/agurkai/nuimtas.php');
+    //         die;
+    //     }
+    // }
+
+
+    foreach ($_SESSION['obj'] as $index => $augalas) {
+        $augalas = unserialize($augalas);
+        Agurkas::nuimtiDerliu($_SESSION['obj']);
+        Pomidoras::nuimtiDerliu($_SESSION['obj']);
+        $augalas = serialize($augalas);
+        //session_unset();
         header('Location: http://localhost/bla/agurkai/nuimtas.php');
         die;
     }
 }
 
-if (isset($_POST['nuimti'])) {
-    foreach ($_SESSION['a'] as $index => $agurkas) {
-Agurkas::nuimtiDerliu()
-
-        unset($_SESSION['a']);
-        header('Location: http://localhost/bla/agurkai/nuimtas.php');
-        die;
-    }
-}
 
 
-$agurkuSodas = ['pirmas.jpg', 'antras.jpg', 'trecias.jpg'];
 
 ?>
 <!DOCTYPE html>
@@ -84,21 +117,22 @@ $agurkuSodas = ['pirmas.jpg', 'antras.jpg', 'trecias.jpg'];
         <button type="submit" name="nuimt">EITI NUIMTI DERLIŲ</button>
     </form>
 
-    <h1>AGURKŲ SODAS</h1>
+    <h1>SODAS</h1>
     <h3>Derliaus nuėmimas</h3>
 
     <!-- <form action="" method="post"> -->
-    <?php foreach ($_SESSION['a'] as $agurkas) : ?>
+    <?php foreach ($_SESSION['obj'] as $augalas) : ?>
+        <?php $augalas = unserialize($augalas) ?>
         <div>
-            <img src="<?= $agurkas['agurko foto'] ?>" alt="Agurkas">
-            Agurkas nr. <?= $agurkas['id'] ?>
-            Galima skinti: <?= $agurkas['agurkai'] ?>
+            <img src="<?= $augalas->foto ?>" alt="Augalas">
+            Augalas nr. <?= $augalas->id ?>
+            Galima skinti: <?= $augalas->count ?>
             <form action="" method="post">
                 <input type="text" name="minus">
-                <button type="submit" name="skinti" value=<?= $agurkas['id'] ?>>SKINTI</button>
+                <button type="submit" name="skinti" value=<?= $augalas->id ?>>SKINTI</button>
             </form>
             <form action="" method="post">
-                <button type="submit" name="visus" value=<?= $agurkas['id'] ?>>SKINTI VISUS</button>
+                <button type="submit" name="visus" value=<?= $augalas->id ?>>SKINTI VISUS</button>
             </form>
         </div>
     <?php endforeach ?>

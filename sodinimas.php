@@ -53,9 +53,9 @@ if (isset($_POST['rauti'])) {
     //     }
     // }
 
-    foreach ($_SESSION['obj'] as $index => $agurkas) {
-        $agurkas = unserialize($agurkas);
-        if ($_POST['rauti'] == $agurkas->id) {
+    foreach ($_SESSION['obj'] as $index => $augalas) {
+        $augalas = unserialize($augalas);
+        if ($_POST['rauti'] == $augalas->id) {
             unset($_SESSION['obj'][$index]);
             header('Location: http://localhost/bla/agurkai/sodinimas.php');
             die;

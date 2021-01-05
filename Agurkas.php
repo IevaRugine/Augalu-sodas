@@ -29,6 +29,11 @@ class Agurkas
     }
 
 
+    public function skintiAugalas($kiek)
+    {
+        $this->count = $this->count - $kiek;
+    }
+
     public function nuskintiVisus()
     {
         $this->count = 0;
@@ -56,7 +61,7 @@ class Agurkas
             $agurkas = unserialize($agurkas);  //<-------agurko objektas
             $agurkas->nuskintiVisus(); //<---pridedam agurka
             $agurkas = serialize($agurkas);   //<---------vel stringas
-            $_SESSION['obj'][$index] = $agurkas; // <--------ishsaugom agurkus
+            $visiAgurkai[$index] = $agurkas; // <--------ishsaugom agurkus
 
         }
     }
