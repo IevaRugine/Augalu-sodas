@@ -1,41 +1,46 @@
+<?php
+
+defined('DOOR_BELL') || die('Įėjimas tik pro duris');
+
+
+$store = new Sodas\Store('augalas');
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUIMTAS</title>
+    <title>DERLIUS NUIMTAS</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+
 </head>
 
-<style>
-    .sveikinu {
-        color: green;
-        font-size: bold;
-    }
-</style>
 
 <body>
+    <aside class="left">
+    </aside>
+    <header class="head">
+        <div class="sticky meniu">
+            <button onclick="window.location.href='http://localhost/bla/agurkai/sodinimas';">EITI SODINTI</button>
+            <button onclick="window.location.href='http://localhost/bla/agurkai/auginimas';">EITI AUGINTI</button>
+            <button onclick="window.location.href='http://localhost/bla/agurkai/skynimas';">EITI NUIMTI DERLIŲ</button>
+        </div>
+        <div class="title">
+            <h1>AUGALŲ SODAS</h1>
+            <h3>Derliaus nuėmimas</h3>
+    </header>
+    <main class="main">
+        <h1 class="sveikinu">SVEIKINU, VISAS DERLIUS NUIMTAS</h1>
 
-    <form action="http://localhost/bla/agurkai/sodinimas.php" method="get">
-        <button type="submit" name="seti">EITI SODINTI</button>
-    </form>
-    <form action="http://localhost/bla/agurkai/auginimas.php" method="get">
-        <button type="submit" name="augti">EITI AUGINTI</button>
-    </form>
-    <form action="http://localhost/bla/agurkai/skynimas.php" method="get">
-        <button type="submit" name="nuimt">EITI NUIMTI DERLIŲ</button>
-    </form>
+        <h3 class="nuimtas">EIK SODINTI :) </h3>
 
-    <h1>SODAS</h1>
-    <h3>Derliaus nuėmimas</h3>
-
-    <h1 class="sveikinu">SVEIKINU, VISAS DERLIUS NUIMTAS</h1>
-    <h3>EIK SODINTI :) </h3>
-
-    <form action="http://localhost/bla/agurkai/sodinimas.php" method="post">
-        <button type="submit" name="seti">EITI SODINTI</button>
-    </form>
-
+        <button onclick="window.location.href='http://localhost/bla/agurkai/sodinimas';">EITI SODINTI</button>
+    </main>
 </body>
 
 </html>

@@ -15,8 +15,10 @@ class App
             include DIR . '/sodinimas.php';
         } elseif ('auginimas' == $uri[0]) {
             include DIR . '/auginimas.php';
-        } elseif ('auginimas' == $uri[0]) {
+        } elseif ('skynimas' == $uri[0]) {
             include DIR . '/skynimas.php';
+        } elseif ('nuimtas' == $uri[0]) {
+            include DIR . '/nuimtas.php';
         }
     }
 

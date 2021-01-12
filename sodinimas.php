@@ -75,7 +75,7 @@ if (isset($_POST['rauti'])) {
                             Pomidoro nr. <?= $augalas->id ?>
                             Pomidorų kiekis: <?= $augalas->count ?>
                         </div>
-                        <button class="btn" type="submit" name="rauti" value=<?= $augalas->id ?>>IŠRAUTI</button>
+                        <button type="submit" name="rauti" value=<?= $augalas->id ?>>IŠRAUTI</button>
                     </div>
                 <?php endif ?>
             <?php endforeach ?>

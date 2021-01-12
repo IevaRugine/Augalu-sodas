@@ -42,15 +42,15 @@ class Augalas
     //{
     //}
 
-    public static function nuimtiDerliu($visiAgurkai)     // <---------$visiAgurkai = $_SESSION['obj']
-    {
-        foreach ($visiAgurkai as $index => $agurkas) {  //<--- sereializuotas stringas
-            $agurkas = unserialize($agurkas);  //<-------agurko objektas
-            $agurkas->nuskintiVisus(); //<---pridedam agurka
-            $agurkas = serialize($agurkas);   //<---------vel stringas
-            $visiAgurkai[$index] = $agurkas; // <--------ishsaugom agurkus
+    // public static function nuimtiDerliu($visiAgurkai)     // <---------$visiAgurkai = $_SESSION['obj']
+    // {
+    //     foreach ($visiAgurkai as $index => $agurkas) {  //<--- sereializuotas stringas
+    //         $agurkas = unserialize($agurkas);  //<-------agurko objektas
+    //         $agurkas->nuskintiVisus(); //<---pridedam agurka
+    //         $agurkas = serialize($agurkas);   //<---------vel stringas
+    //         $visiAgurkai[$index] = $agurkas; // <--------ishsaugom agurkus
 
-        }
+    //     }
         // }
         // public static function koksSiandienOras(){
         //     echo "geras";
@@ -59,3 +59,11 @@ class Augalas
         //     return $a/$b;
     }
 }
+
+
+
+// foreach ($visiAgurkai as $index => $agurkas) {  //<--- sereializuotas stringas
+//     $agurkas = unserialize($agurkas);  //<-------agurko objektas
+//     $agurkas->nuskintiVisus(); //<---pridedam agurka
+//     $agurkas = serialize($agurkas);   //<---------vel stringas
+//     $visiAgurkai[$index] = $agurkas; // <--------ishsaugom agurkus

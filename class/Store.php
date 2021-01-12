@@ -82,7 +82,7 @@ class Store
     }
 
 
-    public function harvest($id)
+    public function pick($id)
     {
         foreach ($this->data['obj'] as $index => $obj) {
             $obj = unserialize($obj);
@@ -92,6 +92,29 @@ class Store
                 $this->data['obj'][$index] = $obj; // <--------ishsaugom agurkus
 
             }
+        }
+    }
+
+    public function pickAll($id)
+    {
+        foreach ($this->data['obj'] as $index => $obj) {
+            $obj = unserialize($obj);
+            if ($obj->id == $id) {
+                $obj->nuskintiVisus();
+                $obj = serialize($obj);   //<---------vel stringas
+                $this->data['obj'][$index] = $obj; // <--------ishsaugom agurkus
+
+            }
+        }
+    }
+
+    public function harvestAll()
+    {
+        foreach ($this->data['obj'] as $index => $obj) {
+            $obj  = unserialize($obj);
+            $obj->nuskintiVisus();
+            $obj = serialize($obj);
+            $this->data['obj'][$index] = $obj;
         }
     }
 }

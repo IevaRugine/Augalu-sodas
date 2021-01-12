@@ -9,7 +9,7 @@ $store = new Sodas\Store('augalas');
 
 //SKINIMO SCENARIJUS
 if (isset($_POST['skinti'])) {
-    $store->harvest($_POST['skinti']);
+    $store->pick($_POST['skinti']);
     Sodas\App::redirect('skynimas');
 }
 
@@ -17,32 +17,16 @@ if (isset($_POST['skinti'])) {
 
 //VISUS SKINTI SCENARIJUS
 if (isset($_POST['visus'])) {
-
-
-    foreach ($_SESSION['obj'] as $i => $augalas) {
-        $augalas = unserialize($augalas);
-        if ($_POST['visus'] == $augalas->id) {
-            $augalas->nuskintiVisus();
-            $augalas = serialize($augalas);   //<---------vel stringas
-            $_SESSION['obj'][$i] = $augalas; // <--------ishsaugom agurkus
-            Sodas\App::redirect('skynimas');
-        }
-    }
+    $store->pickAll($_POST['visus']);
+    Sodas\App::redirect('skynimas');
 }
 
 
 
 //NUIMTI visa derliu
 if (isset($_POST['nuimti'])) {
-
-    foreach ($_SESSION['obj'] as $index => $augalas) {
-        $augalas = unserialize($augalas);
-        Sodas\Agurkas::nuimtiDerliu($_SESSION['obj']);
-        Sodas\Pomidoras::nuimtiDerliu($_SESSION['obj']);
-        $augalas = serialize($augalas);
-        //session_unset();
-        Sodas\App::redirect('skynimas');
-    }
+    $store->harvestAll();
+    Sodas\App::redirect('nuimtas');
 }
 
 
@@ -80,18 +64,13 @@ if (isset($_POST['nuimti'])) {
     <main class="main">
         <form action="<?= URL . 'skynimas' ?>" method="post">
             <?php foreach ($store->getall() as $augalas) : ?>
-                <?php $augalas = unserialize($augalas) ?>
                 <div>
                     <img src="<?= $augalas->foto ?>" alt="Augalas">
                     Augalas nr. <?= $augalas->id ?>
                     Galima skinti: <?= $augalas->count ?>
-                    <form action="" method="post">
-                        <input type="text" name="minus">
-                        <button type="submit" name="skinti" value=<?= $augalas->id ?>>SKINTI</button>
-                    </form>
-                    <form action="" method="post">
-                        <button type="submit" name="visus" value=<?= $augalas->id ?>>SKINTI VISUS</button>
-                    </form>
+                    <input type="text" name="minus">
+                    <button type="submit" name="skinti" value=<?= $augalas->id ?>>SKINTI</button>
+                    <button type="submit" name="visus" value=<?= $augalas->id ?>>SKINTI VISUS</button>
                 </div>
             <?php endforeach ?>
 
