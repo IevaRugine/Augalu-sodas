@@ -1,33 +1,20 @@
 <?php
 
-class Pomidoras
+namespace Sodas;
+
+class Augalas
 {
 
-    private $id, $count, $plius;
-    public $foto;
+    private $id, $count;
 
 
-    public function __construct($lastId, $pomidoruFoto)
+    public function __construct($lastId)
     {
 
         $this->id = $lastId + 1;
         $this->count = 0;
-        shuffle($pomidoruFoto);
-        $this->foto = $pomidoruFoto[0];
-
-
-        //$agurkoObj->id = $_SESSION['agurku ID'] + 1;
-        //$agurkoObj->count = 0;
-        //$agurkoObj->foto = $agurkuSodas[0];
     }
 
-
-
-    public function addAugalas()
-    {
-        $this->plius = rand(1, 3);
-        $this->count =  $this->count + $this->plius;
-    }
 
     public function skintiAugalas($kiek)
     {
@@ -64,5 +51,11 @@ class Pomidoras
             $visiAgurkai[$index] = $agurkas; // <--------ishsaugom agurkus
 
         }
+        // }
+        // public static function koksSiandienOras(){
+        //     echo "geras";
+        // }
+        // public static function divide($a,$b){
+        //     return $a/$b;
     }
 }

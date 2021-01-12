@@ -26,7 +26,7 @@
         <button type="submit" name="nuimt">EITI NUIMTI DERLIŲ</button>
     </form>
 
-    <h1>AGURKŲ SODAS</h1>
+    <h1>SODAS</h1>
     <h3>Derliaus nuėmimas</h3>
 
     <h1 class="sveikinu">SVEIKINU, VISAS DERLIUS NUIMTAS</h1>

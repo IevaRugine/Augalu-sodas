@@ -1,0 +1,17 @@
+{
+    "name": "ieva/agurkai",
+    "description": "Bla bla",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "IevaRugine",
+            "email": "70884312+IevaRugine@users.noreply.github.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Sodas\\": "class"
+        }
+    }
+}
