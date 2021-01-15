@@ -51,9 +51,9 @@ if (isset($_POST['nuimti'])) {
     </aside>
     <header class="head">
         <div class="sticky meniu">
-            <button onclick="window.location.href='http://localhost/bla/agurkai/sodinimas';">EITI SODINTI</button>
-            <button onclick="window.location.href='http://localhost/bla/agurkai/auginimas';">EITI AUGINTI</button>
-            <button onclick="window.location.href='http://localhost/bla/agurkai/skynimas';">EITI NUIMTI DERLIŲ</button>
+            <button class="nav" onclick="window.location.href='http://localhost/bla/agurkai/sodinimas';">EITI SODINTI</button>
+            <button class="nav" onclick="window.location.href='http://localhost/bla/agurkai/auginimas';">EITI AUGINTI</button>
+            <button class="nav" onclick="window.location.href='http://localhost/bla/agurkai/skynimas';">EITI NUIMTI DERLIŲ</button>
         </div>
         <div class="title">
             <h1>AUGALŲ SODAS</h1>

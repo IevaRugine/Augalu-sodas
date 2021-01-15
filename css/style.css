@@ -1,6 +1,6 @@
 body {
     display: grid;
-    grid-template-columns: 100px 1fr 100px;
+    grid-template-columns: 200px 1fr 200px;
     grid-template-areas: 
     "head head head"
     "left main right";
@@ -22,15 +22,16 @@ body > header {
 .meniu {
     display: inline-block;
     width: 100%;
-    background-color: grey;
+    background-color: lightgreen;
     text-align: center;
     padding: 20px;
 }
 
 .title {
     text-align: center;
-    padding-top: 150px;
-    padding-bottom: 50px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    color:white;
 }
 
 .left {
@@ -50,12 +51,24 @@ main {
   
 }
 img {
+    text-align: center;
     max-width: 200px;
     height: 120px;
+}
+.info{
+    text-align: center;
+    width: 100%;
+    color:rgb(109, 136, 109); 
 }
 
 
 .right{
+
+}
+
+.planting{
+    width: 100%;
+    padding-top: 10px;
 
 }
 
@@ -78,6 +91,10 @@ button:hover {
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.4s ease 0s;
+}
+.nav {
+    color:  lightgreen !important;
+    background:white;
 }
 
 .nuimtas {

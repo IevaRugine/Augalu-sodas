@@ -7,6 +7,7 @@ class Pomidoras extends Augalas
 {
     public $foto;
     public $plius;
+    public $name;
 
     public function __construct($lastId)
     {
@@ -14,6 +15,7 @@ class Pomidoras extends Augalas
         $pomidoruSodas = ['./photo/pirma.jpg', './photo/antra.jpg', './photo/trecia.jpg'];
         shuffle($pomidoruSodas);
         $this->foto = $pomidoruSodas[0];
+        $this->name = 'Pomidoras';
     }
 
     public function addAugalas()

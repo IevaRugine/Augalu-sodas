@@ -36,7 +36,7 @@ class Augalas
     {
         $this->$propertyName = $value;
     }
-
+}
     //Visai nebutina
     //public function __serialize()  // <----- ivyksta kai objektas realizuojamas
     //{
@@ -57,8 +57,8 @@ class Augalas
         // }
         // public static function divide($a,$b){
         //     return $a/$b;
-    }
-}
+    
+
 
 
 
