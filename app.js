@@ -54,7 +54,6 @@ buttonAgurkas.addEventListener('click', () => {
     const count = document.querySelector('[name=kiekAgurku').value;
     axios.post(apiUrl, {
         kiekis: count,
-        sodintiAgurka: 1
     })
         .then(function (response) {
             console.log(response.data);
@@ -72,8 +71,6 @@ buttonPomidoras.addEventListener('click', () => {
     const count = document.querySelector('[name=kiekPomidoru]').value;
     axios.post(apiUrl, {
         kiekis: count,
-        sodintiPomidora: 1
-
     })
         .then(function (response) {
             console.log(response.data);
