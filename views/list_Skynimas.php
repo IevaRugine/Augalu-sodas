@@ -1,10 +1,23 @@
 <?php foreach ($store->getall() as $augalas) : ?>
     <div class="items">
-        <img src="<?= $augalas->foto ?>" alt="Augalas">
-        Augalas nr. <?= $augalas->id ?>
-        Galima skinti: <?= $augalas->count ?>
-        <input type="text" name="minus">
-        <button type="submit" name="skinti" value=<?= $augalas->id ?>>SKINTI</button>
+        <img class="img" src="<?= $augalas->foto ?>" alt="Augalas">
+        <div>
+            <h3 class="info">
+                Agurkas nr. <?= $augalas->id ?>
+            </h3>
+            <div class="info">
+                Kaina : <?= $augalas->price ?> €
+            </div>
+            <div class="info">
+                Galima skinti: <?= $augalas->count ?>
+            </div>
+            <div class="info">
+                <input type="text" name="minus">
+            </div>
+            <div class="info">
+                <button type="submit" name="skinti" value=<?= $augalas->id ?>>SKINTI</button>
+            </div>
+        </div>
         <button type="submit" name="visus" value=<?= $augalas->id ?>>SKINTI VISUS</button>
     </div>
 <?php endforeach ?>

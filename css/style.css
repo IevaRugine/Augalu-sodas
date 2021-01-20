@@ -48,6 +48,7 @@ main {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 
     "img info btn";
+    margin-bottom: 10px;
   
 }
 img {
