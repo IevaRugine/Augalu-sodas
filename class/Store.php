@@ -46,7 +46,8 @@ class Store
         return $id;
     }
 
-    public function save($augalas, $key) {
+    public function save($augalas, $key)
+    {
         $augalas = serialize($augalas);
         $this->data['obj'][$key] = $augalas;
     }
@@ -87,12 +88,12 @@ class Store
     }
 
 
-    public function pick($id)
+    public function pick($id, $kiek)
     {
         foreach ($this->data['obj'] as $index => $obj) {
             $obj = unserialize($obj);
             if ($obj->id == $id) {
-                $obj->skintiAugalas($_POST['minus']);
+                $obj->skintiAugalas($kiek);
                 $obj = serialize($obj);   //<---------vel stringas
                 $this->data['obj'][$index] = $obj; // <--------ishsaugom agurkus
 

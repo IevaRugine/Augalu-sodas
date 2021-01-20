@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" defer integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src="http://localhost/bla/agurkai/js/harvest.js" defer></script>
+    <script>
+        const apiUrl = 'http://localhost/bla/agurkai/skynimas';
+    </script>
     <title>SKYNIMAS</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -27,20 +32,10 @@
     </header>
 
     <main class="main">
-        <form action="<?= URL . 'skynimas' ?>" method="post">
-            <?php foreach ($store->getall() as $augalas) : ?>
-                <div>
-                    <img src="<?= $augalas->foto ?>" alt="Augalas">
-                    Augalas nr. <?= $augalas->id ?>
-                    Galima skinti: <?= $augalas->count ?>
-                    <input type="text" name="minus">
-                    <button type="submit" name="skinti" value=<?= $augalas->id ?>>SKINTI</button>
-                    <button type="submit" name="visus" value=<?= $augalas->id ?>>SKINTI VISUS</button>
-                </div>
-            <?php endforeach ?>
+        <div id="error"></div>
+        <div id="harvestList" class="harvestList"></div>
 
-            <button type="submit" name="nuimti">NUIMTI VISĄ DERLIŲ</button>
-        </form>
+        <button type="submit" name="nuimti" id="nuimti">NUIMTI VISĄ DERLIŲ</button>
 
     </main>
     <aside class="right">
@@ -48,5 +43,3 @@
 </body>
 
 </html>
-
-<?php

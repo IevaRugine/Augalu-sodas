@@ -39,7 +39,7 @@ class SodinimasController
             ['content-type' => 'text/html']
         );
         ob_start();
-        include DIR . '/views/index.php';
+        include DIR . '/views/index_Sodinimas.php';
         $out = ob_get_contents();
         ob_end_clean();
         // setinam contenta ---------------------------------
@@ -58,7 +58,7 @@ class SodinimasController
         $store = new Store('augalas'); //negraziai apiformintas kintamojo perdavimas i views
 
         ob_start();
-        include DIR . '/views/list.php';
+        include DIR . '/views/list_Sodinimas.php';
         $out = ob_get_contents();
         ob_end_clean();
 
@@ -69,9 +69,7 @@ class SodinimasController
         $response->prepare(App::$request);
 
         return $response;
-
     }
-
 
 
     //SODINIMO SCENARIJUS
@@ -107,7 +105,7 @@ class SodinimasController
 
         ob_start();
         $store = $this->store;
-        include DIR . '/views/list.php';
+        include DIR . '/views/list_Sodinimas.php';
         $out = ob_get_contents();
         ob_end_clean();
 
@@ -154,7 +152,7 @@ class SodinimasController
 
         ob_start();
         $store = $this->store;
-        include DIR . '/views/list.php';
+        include DIR . '/views/list_Sodinimas.php';
         $out = ob_get_contents();
         ob_end_clean();
 
@@ -174,10 +172,9 @@ class SodinimasController
 
         $this->store->remove($this->rawData['id']);
 
-        $store = new Store('augalas');
         ob_start();
         $store = $this->store;
-        include DIR . '/views/list.php';
+        include DIR . '/views/list_Sodinimas.php';
         $out = ob_get_contents();
         ob_end_clean();
 
