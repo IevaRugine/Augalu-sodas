@@ -10,10 +10,10 @@
                     Kiekis: <?= $augalas->count ?>
                 </div>
                 <div class="info">
-                    Kaina : <?= $augalas->count ?> $
+                    Kaina : <?= $augalas->price ?> $
                 </div>
                 <div class="info">
-                    Kaina : <?= $augalas->count ?> €
+                    Kaina : <?= $augalas->price ?> €
                 </div>
             </div>
             <button type="button" name="rauti" value=<?= $augalas->id ?>>IŠRAUTI</button>
@@ -30,10 +30,10 @@
                     Kiekis: <?= $augalas->count ?>
                 </div>
                 <div class="info">
-                    Kaina : <?= $augalas->count ?> $
+                    Kaina : <?= $augalas->price ?> $
                 </div>
                 <div class="info">
-                    Kaina : <?= $augalas->count ?> €
+                    Kaina : <?= $augalas->price ?> €
                 </div>
             </div>
             <button type="button" name="rauti" value=<?= $augalas->id ?>>IŠRAUTI</button>

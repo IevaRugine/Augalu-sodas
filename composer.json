@@ -8,10 +8,13 @@
             "email": "70884312+IevaRugine@users.noreply.github.com"
         }
     ],
-    "require": {},
+    "require": {
+        "symfony/http-foundation": "^5.2"
+    },
     "autoload": {
         "psr-4": {
-            "Sodas\\": "class"
+            "Sodas\\": "class",
+            "Sodas\\Controllers\\": "class/controllers"
         }
     }
 }

@@ -2,11 +2,14 @@
 
 namespace Sodas;
 
+use Sodas\Augalas;
+
 class Agurkas extends Augalas
 {
     public $foto;
     public $plius;
     public $name;
+    public $price;
 
 
     public function __construct($lastId)
@@ -16,6 +19,7 @@ class Agurkas extends Augalas
         shuffle($agurkuSodas);
         $this->foto = $agurkuSodas[0];
         $this->name = 'Agurkas';
+        $this->price = 7;
     }
 
 
@@ -24,4 +28,13 @@ class Agurkas extends Augalas
         $this->plius = rand(2, 9);
         $this->count =  $this->count + $this->plius;
     }
+    // public function __get($propertyName)
+    // {
+    //     return $this->$propertyName;
+    // }
+
+    // public function __set($propertyName, $value)
+    // {
+    //     $this->$propertyName = $value;
+    // }
 }

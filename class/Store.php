@@ -46,6 +46,11 @@ class Store
         return $id;
     }
 
+    public function save($augalas, $key) {
+        $augalas = serialize($augalas);
+        $this->data['obj'][$key] = $augalas;
+    }
+
     public function addNew(Augalas $obj)
     {
         $this->data['obj'][] = serialize($obj);

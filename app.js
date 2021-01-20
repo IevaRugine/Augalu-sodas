@@ -13,9 +13,8 @@ const addNewList = () => {
         console.log(augalai);
         augalai.querySelector('[type=button]').addEventListener('click', () => {
             const id = augalai.querySelector('[name=rauti]').value;
-            axios.post(apiUrl, {
+            axios.post(apiUrl + '/remove', {
                 id: id,
-                rauti: 1
             })
                 .then(function (response) {
                     console.log(response.data);
@@ -32,9 +31,7 @@ const addNewList = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    axios.post(apiUrl, {
-        list: 1,
-    })
+    axios.post(apiUrl + '/list', {})
         .then(function (response) {
 
             console.log(response.data);
@@ -51,8 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 buttonAgurkas.addEventListener('click', () => {
-    const count = document.querySelector('[name=kiekAgurku').value;
-    axios.post(apiUrl, {
+    const count = document.querySelector('[name=kiekAgurku]').value;
+
+    axios.post(apiUrl + '/plantCucumber', {
         kiekis: count,
     })
         .then(function (response) {
@@ -69,7 +67,8 @@ buttonAgurkas.addEventListener('click', () => {
 
 buttonPomidoras.addEventListener('click', () => {
     const count = document.querySelector('[name=kiekPomidoru]').value;
-    axios.post(apiUrl, {
+
+    axios.post(apiUrl + '/plantTomato', {
         kiekis: count,
     })
         .then(function (response) {

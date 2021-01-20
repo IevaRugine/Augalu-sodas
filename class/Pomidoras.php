@@ -2,12 +2,14 @@
 
 namespace Sodas;
 
+use Sodas\Augalas;
 
 class Pomidoras extends Augalas
 {
     public $foto;
     public $plius;
     public $name;
+    public $price;
 
     public function __construct($lastId)
     {
@@ -16,6 +18,7 @@ class Pomidoras extends Augalas
         shuffle($pomidoruSodas);
         $this->foto = $pomidoruSodas[0];
         $this->name = 'Pomidoras';
+        $this->price = 8;
     }
 
     public function addAugalas()

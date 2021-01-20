@@ -6,11 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'agurkai\\' => array($baseDir . '/inc'),
-    '\\' => array($baseDir . '/inc'),
-    'Tomato\\' => array($baseDir . '/inc'),
+    'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
+    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Symfony\\Component\\HttpFoundation\\' => array($vendorDir . '/symfony/http-foundation'),
+    'Sodas\\Controllers\\' => array($baseDir . '/class/controllers'),
     'Sodas\\' => array($baseDir . '/class'),
-    'Plant\\' => array($baseDir . '/inc'),
-    'Garden\\' => array($baseDir . '/inc'),
-    'Cucumber\\' => array($baseDir . '/inc'),
 );
