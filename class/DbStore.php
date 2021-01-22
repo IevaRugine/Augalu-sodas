@@ -79,15 +79,14 @@ class DbStore implements Store
 
     function grow()
     {
-        foreach ($this->masyvas['obj'] as $row => $obj) {
+        foreach ($this->getall() as $k => $obj) {
             $obj->addAugalas();
-            //$this->masyvas['obj'][$row] = $obj;
-            $obj->count = $row['count'];
 
             $sql = "UPDATE augalas
-            SET '.$obj->count.'
-            WHERE 'count';";
+            SET `count` = '$obj->count'
+            WHERE `id`='$obj->id';";
             $this->pdo->query($sql);
+     
         }
     }
 }
