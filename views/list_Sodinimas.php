@@ -1,5 +1,5 @@
 <?php foreach ($store->getall() as $augalas) : ?>
-    <?php if ($augalas->name == 'Agurkas') : ?>
+    <?php if ($augalas->type == 'Agurkas') : ?>
         <div class="items" id="agurkasList">
             <img class="img" src="<?= $augalas->foto ?>" alt="Agurkas">
             <div>
@@ -18,7 +18,7 @@
             </div>
             <button type="button" name="rauti" value=<?= $augalas->id ?>>IŠRAUTI</button>
         </div>
-    <?php elseif ($augalas->name == 'Pomidoras') : ?>
+    <?php elseif ($augalas->type == 'Pomidoras') : ?>
 
         <div class="items" id="pomidorasList">
             <img class="img" src="<?= $augalas->foto ?>" alt="Pomidoras">

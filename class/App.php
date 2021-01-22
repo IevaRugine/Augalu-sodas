@@ -11,6 +11,8 @@ class App
 {
     public static $request;
 
+    private static $storeSetting = 'db'; //gali buti dvieju rusiu - JSON or DB
+
     public static function start()
     {
         self::$request = Request::createFromGlobals();
@@ -18,6 +20,16 @@ class App
         return self::route();
     }
 
+
+    public static function store($type)     //<--- factory gamins json store objektus
+    {
+        if ('json' == self::$storeSetting) {
+            return new JsonStore($type);
+        }
+        if ('db' == self::$storeSetting) {
+            return new DbStore($type);
+        }
+    }
 
     // Router
     public static function route()

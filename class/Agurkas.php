@@ -8,7 +8,7 @@ class Agurkas extends Augalas
 {
     public $foto;
     public $plius;
-    public $name;
+    public $type;
     public $price;
 
 
@@ -18,7 +18,7 @@ class Agurkas extends Augalas
         $agurkuSodas = ['./photo/pirmas.jpg', './photo/antras.jpg', './photo/trecias.jpg'];
         shuffle($agurkuSodas);
         $this->foto = $agurkuSodas[0];
-        $this->name = 'Agurkas';
+        $this->type = 'Agurkas';
         $this->price = 7;
     }
 

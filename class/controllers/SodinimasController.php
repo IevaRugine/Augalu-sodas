@@ -23,7 +23,7 @@ class SodinimasController
     {
 
         if ('POST' === $_SERVER['REQUEST_METHOD']) {
-            $this->store = new Store('augalas');
+            $this->store = App::store('augalas');
             $this->rawData = App::$request->getContent(); // <--- SYMFONY :)
             $this->rawData = json_decode($this->rawData, 1);
         }
@@ -55,7 +55,7 @@ class SodinimasController
     public function list()
     {
         //kreipiames i views ir perduodam kintamuosius
-        $store = new Store('augalas'); //negraziai apiformintas kintamojo perdavimas i views
+        $store = App::store('augalas'); //negraziai apiformintas kintamojo perdavimas i views
 
         ob_start();
         include DIR . '/views/list_Sodinimas.php';
