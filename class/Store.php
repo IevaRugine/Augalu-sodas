@@ -13,7 +13,7 @@ interface Store
     function getAll();
     function remove($id);
     function grow();
-    //function pick($id, $kiek);
-    // function pickAll($id);
-    //function harvestAll();
+    function pick($id, $kiek);
+    function pickAll($id);
+    function harvestAll();
 }

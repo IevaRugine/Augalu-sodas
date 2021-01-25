@@ -79,14 +79,53 @@ class DbStore implements Store
 
     function grow()
     {
-        foreach ($this->getall() as $k => $obj) {
+        foreach ($this->getAll() as $k => $obj) {
             $obj->addAugalas();
 
             $sql = "UPDATE augalas
             SET `count` = '$obj->count'
             WHERE `id`='$obj->id';";
             $this->pdo->query($sql);
-     
+        }
+    }
+
+    public function pick($id, $kiek)
+    {
+        foreach ($this->getAll() as $k => $obj) {
+            if ($obj->id == $id) {
+                $obj->skintiAugalas($kiek);
+
+                $sql = "UPDATE augalas
+                SET `count` = '$obj->count'
+                WHERE `id`='$obj->id';";
+                $this->pdo->query($sql);
+            }
+        }
+    }
+
+    public function pickAll($id)
+    {
+        foreach ($this->getAll() as $k => $obj) {
+            if ($obj->id == $id) {
+                $obj->nuskintiVisus();
+
+                $sql = "UPDATE augalas
+                SET `count` = '$obj->count'
+                WHERE `id`='$obj->id';";
+                $this->pdo->query($sql);
+            }
+        }
+    }
+
+    public function harvestAll()
+    {
+        foreach ($this->getAll() as $k => $obj) {
+            $obj->nuskintiVisus();
+
+            $sql = "UPDATE augalas
+            SET `count` = '$obj->count'
+            WHERE `id`='$obj->id';";
+            $this->pdo->query($sql);
         }
     }
 }
