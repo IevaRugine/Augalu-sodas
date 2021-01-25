@@ -1,9 +1,11 @@
 <?php foreach ($store->getall() as $augalas) : ?>
     <div class="items">
-        <img class="img" src="<?= $augalas->photo ?>" alt="Augalas">
+        <div class="photo">
+            <img class="img" src="<?= $augalas->photo ?>" alt="Augalas">
+        </div>
         <div>
             <h3 class="info">
-                Agurkas nr. <?= $augalas->id ?>
+                <?= $augalas->type ?> nr. <?= $augalas->id ?>
             </h3>
             <div class="info">
                 Kaina : <?= $augalas->price ?> €
