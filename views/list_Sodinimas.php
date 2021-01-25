@@ -1,7 +1,9 @@
 <?php foreach ($store->getall() as $augalas) : ?>
     <?php if ($augalas->type == 'Agurkas') : ?>
         <div class="items" id="agurkasList">
-            <img class="img" src="<?= $augalas->foto ?>" alt="Agurkas">
+
+            <img class="img" src="<?= $augalas->photo ?>" alt="Agurkas">
+
             <div>
                 <h3 class="info">
                     Agurkas nr. <?= $augalas->id ?>
@@ -21,7 +23,7 @@
     <?php elseif ($augalas->type == 'Pomidoras') : ?>
 
         <div class="items" id="pomidorasList">
-            <img class="img" src="<?= $augalas->foto ?>" alt="Pomidoras">
+            <img class="img" src="<?= $augalas->photo ?>" alt="Pomidoras">
             <div>
                 <h3 class="info">
                     Pomidoras nr. <?= $augalas->id ?>

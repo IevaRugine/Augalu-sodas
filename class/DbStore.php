@@ -7,11 +7,7 @@ use PDO;
 class DbStore implements Store
 {
 
-
     private $pdo;
-    private $masyvas;
-
-
 
     public function __construct($o = null)
     {
@@ -37,7 +33,9 @@ class DbStore implements Store
     {
         $sql = "SELECT * FROM augalas
         ;";
-        $stmt = $this->pdo->query($sql); // <--- SAUGU
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        //$stmt = $this->pdo->query($sql); // <--- SAUGU
 
 
         $masyvas = [];
@@ -50,6 +48,8 @@ class DbStore implements Store
             $obj->id = $row['id'];
             $obj->count = $row['count'];
             $obj->type = $row['type'];
+            $obj->photo = $row['photo'];
+            $obj->plius = $row['plius'];
             $masyvas[] = $obj;
         }
         return $masyvas;
@@ -63,17 +63,31 @@ class DbStore implements Store
     {
 
         //RASYMAS
-        $sql = "INSERT INTO augalas (`count`,`type`)
-        VALUES ('.$obj->count.', '$obj->type');";
-        $this->pdo->query($sql);  // <--- NESAUGU!!!!!!!!!
+
+        $sql = "INSERT INTO augalas (`count`,`type`, `photo`)
+        VALUES (?, ?, ? );";
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->execute([$obj->count, $obj->type, $obj->photo]);
+
+        // $sql = "INSERT INTO augalas (`count`,`type`)
+        // VALUES ('.$obj->count.', '$obj->type');";
+        // $this->pdo->query($sql);  // <--- NESAUGU!!!!!!!!!
+
     }
 
     public function remove($id)
     {
 
         $sql = "DELETE FROM augalas
-        WHERE id='" . $id . "';";
-        $this->pdo->query($sql);  // <--- NESAUGU!!!!!!!!!
+        WHERE id = ? ; ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+
+
+        // $sql = "DELETE FROM augalas
+        // WHERE id='" . $id . "';";
+        // $this->pdo->query($sql);  // <--- NESAUGU!!!!!!!!!
 
     }
 
@@ -82,10 +96,19 @@ class DbStore implements Store
         foreach ($this->getAll() as $k => $obj) {
             $obj->addAugalas();
 
+
             $sql = "UPDATE augalas
-            SET `count` = '$obj->count'
-            WHERE `id`='$obj->id';";
-            $this->pdo->query($sql);
+            SET count = $obj->count, 
+            plius = $obj->plius
+            WHERE id = $obj->id ; ";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+
+
+            // $sql = "UPDATE augalas
+            // SET `count` = '$obj->count'
+            // WHERE `id`='$obj->id';";
+            // $this->pdo->query($sql);
         }
     }
 
@@ -95,10 +118,19 @@ class DbStore implements Store
             if ($obj->id == $id) {
                 $obj->skintiAugalas($kiek);
 
+
                 $sql = "UPDATE augalas
-                SET `count` = '$obj->count'
-                WHERE `id`='$obj->id';";
-                $this->pdo->query($sql);
+                SET count = ?
+                WHERE id = ? ; ";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute([$obj->count, $id]);
+
+
+
+                // $sql = "UPDATE augalas
+                // SET `count` = '$obj->count'
+                // WHERE `id`='$obj->id';";
+                // $this->pdo->query($sql);
             }
         }
     }
@@ -110,9 +142,15 @@ class DbStore implements Store
                 $obj->nuskintiVisus();
 
                 $sql = "UPDATE augalas
-                SET `count` = '$obj->count'
-                WHERE `id`='$obj->id';";
-                $this->pdo->query($sql);
+                SET count = ?
+                WHERE id = ? ; ";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute([$obj->count, $id]);
+
+                // $sql = "UPDATE augalas
+                // SET `count` = '$obj->count'
+                // WHERE `id`='$obj->id';";
+                // $this->pdo->query($sql);
             }
         }
     }
@@ -125,7 +163,11 @@ class DbStore implements Store
             $sql = "UPDATE augalas
             SET `count` = '$obj->count'
             WHERE `id`='$obj->id';";
-            $this->pdo->query($sql);
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+
+
+            //$this->pdo->query($sql);
         }
     }
 }

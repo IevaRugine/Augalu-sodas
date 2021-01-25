@@ -1,6 +1,6 @@
 <?php foreach ($store->getall() as $augalas) : ?>
     <div class="items">
-        <img class="img" src="<?= $augalas->foto ?>" alt="Augalas">
+        <img class="img" src="<?= $augalas->photo ?>" alt="Augalas">
         <div>
             <h3 class="info">
                 Agurkas nr. <?= $augalas->id ?>

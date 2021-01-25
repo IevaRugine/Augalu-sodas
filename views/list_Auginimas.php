@@ -1,6 +1,6 @@
 <?php foreach ($store->getall() as $augalas) : ?>
     <div class="items">
-        <img class="img" src="<?= $augalas->foto ?>" alt="Agurkas">
+        <img class="img" src="<?= $augalas->photo ?>" alt="Agurkas">
         <div>
             <h3 class="info">
                 Augalo nr. <?= $augalas->id ?>
@@ -12,10 +12,10 @@
                 Kaina : <?= $augalas->price ?> €
             </div>
             <div class="info">
-                <h3 style="display:inline;color:red;">Priauginta <?= $augalas->plius ?></h3>
+                <h3 style="display:inline;color:red;"> Priauginta: <?= $augalas->plius ?></h3>
             </div>
         </div>
-        <?php $augalas->plius ?>
+
         <div class="info">
             <h3>Iš viso augalų: </h3>
             <h3 style="display:inline;"><?= $augalas->count ?></h3>

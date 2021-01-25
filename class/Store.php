@@ -5,10 +5,7 @@ namespace Sodas;
 interface Store
 {
 
-    //function getData();
-    //function setData(($data);
     function getNewId();
-    //function save($augalas, $key);
     function addNew(Augalas $obj);
     function getAll();
     function remove($id);

@@ -6,7 +6,7 @@ use Sodas\Augalas;
 
 class Pomidoras extends Augalas
 {
-    public $foto;
+    public $photo;
     public $plius;
     public $type;
     public $price;
@@ -16,7 +16,7 @@ class Pomidoras extends Augalas
         parent::__construct($lastId);
         $pomidoruSodas = ['./photo/pirma.jpg', './photo/antra.jpg', './photo/trecia.jpg'];
         shuffle($pomidoruSodas);
-        $this->foto = $pomidoruSodas[0];
+        $this->photo = $pomidoruSodas[0];
         $this->type = 'Pomidoras';
         $this->price = 8;
     }
