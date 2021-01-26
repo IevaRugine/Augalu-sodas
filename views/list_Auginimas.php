@@ -19,9 +19,9 @@
         </div>
 
         <div class="info">
-            <h3>Iš viso augalų: </h3>
-            <h3 style="display:inline;"><?= $augalas->count ?></h3>
+            <h3> Iš viso užauginta: <?= $augalas->count ?></h3>
             <input type="hidden" name="kiekis[<?= $augalas->id ?>]" value="<?= $augalas->plius ?>">
         </div>
+
     </div>
 <?php endforeach ?>
